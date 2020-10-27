@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="public/zoo.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>zoo-charts</title>
+	<link rel="stylesheet" type="text/css" href="public/normalize.css">
+	<link rel="stylesheet" type="text/css" href="public/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<script src="https://unpkg.com/rough-viz@1.0.6"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<noscript>
+		You need to enable JavaScript to run this app.
+	</noscript>
+	<div id="root">
+		<div class="header">
+			<div class="content">
+				<a href="https://github.com/zoo-js" target="_blank">
+					<img style="margin-top: 8px;" src="https://avatars1.githubusercontent.com/u/70757173?s=60&v=4" />
+				</a>
+				<a href="https://github.com/zoo-js/zoo-charts" target="_blank">
+					<h1>Zoo charts </h1>
+				</a>
+				<div class="h1-tip">
+					The number of people adopt pets Top 10
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="box">
+				<div id="zoo-charts-bar"></div>
+			</div>
+			<div class="box">
+				<div id="zoo-charts-pie"></div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			const url = 'https://raw.githubusercontent.com/zoo-js/zoo-data/main/json/organizations.json';
+			axios.get(url).then(res => {
+				const arr = res.data.data.sort((a, b) => b.number - a.number).slice(0,10);
+				const x = [];
+				const y = [];
+				arr.map(it =>{
+					x.push(it.name);
+					y.push(it.number);
+				});
+
+				new roughViz.BarH({
+					element: '#zoo-charts-bar',
+					data: {
+						labels: x,
+						values: y
+					},
+					margin: {
+						top: 50, right: 0, bottom: 50, left: 100
+					},
+					color: '#26A699',
+					axisFontSize: '1.2rem',
+					padding: 0.3,
+					fillWeight: 1,
+					tooltipFontSize: '1rem',
+				});
+
+				new roughViz.Pie({
+					element: '#zoo-charts-pie',
+					data: {
+						labels: x,
+						values: y
+					},
+					fillStyle: 'zigzag-line',
+					strokeWidth: 3,
+					highlight: '#000',
+					legendPosition: 'left',
+					margin: {
+						top: 60, right: 0, bottom: 50, left: 80
+					},
+					padding: 0,
+					roughness: 1,
+					tooltipFontSize: '1rem',
+					colors: [
+						'#60acfc',
+						'#32d3eb',
+						'#5bc49f',
+						'#feb64d',
+						'#9287e7',
+						'#3db3ea',
+						'#43cec7',
+						'#d4ec59',
+						'#f7816d',
+						'#d660a8'
+					],
+				});
+				
+			}).catch(err => {
+				console.log(err);
+			});
+		})();
+	</script>
+</body>
+
+</html>
