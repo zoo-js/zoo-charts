@@ -50,6 +50,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(to right, red, yellow, lime, aqua, blue, fuchsia);
   animation: hue 4s linear infinite;
+  font-family: "Montserrat";
 }
 
 .goto:hover {
