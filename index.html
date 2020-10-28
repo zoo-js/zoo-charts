@@ -19,7 +19,7 @@
 			<a href="https://github.com/zoo-js" target="_blank">
 				<img style="margin-top: 8px;" src="https://avatars1.githubusercontent.com/u/70757173?s=60&v=4" />
 			</a>
-			<a href="https://github.com/zoo-js/zoo-charts" target="_blank">
+			<a class="logo" href="https://github.com/zoo-js/zoo-charts" target="_blank">
 				<h1>Zoo charts </h1>
 			</a>
 			<div class="h1-tip">
@@ -34,7 +34,11 @@
 		<div class="box">
 			<div id="zoo-charts-pie"></div>
 		</div>
+		<a href="https://zoo-js.github.io/zoo-issue-helper/" target="_blank" class="goto">
+			👋 Now adopt!
+		</a>
 	</div>
+	
 
 	<script>
 		(function () {
@@ -75,7 +79,7 @@
 					highlight: '#000',
 					legendPosition: 'left',
 					margin: {
-						top: 60, right: 0, bottom: 50, left: 80
+						top: 60, right: 10, bottom: 50, left: 80
 					},
 					padding: 0,
 					roughness: 1,
@@ -93,7 +97,6 @@
 						'#d660a8'
 					],
 				});
-				
 			}).catch(err => {
 				console.log(err);
 			});
