@@ -1,6 +1,6 @@
-# people-charts
+# zoo-charts
 
-📊 View the distribution of people through the charts
+📊 View the distribution of zoo people through the charts
 
 ## View
 
