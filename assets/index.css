@@ -79,9 +79,25 @@ h1 {
   width: 50%;
 }
 
+.footer {
+  width: 200px;
+  position: fixed;
+  bottom: 20px;
+  text-align: center;
+  margin-left: calc((100% - 200px) / 2);
+  font-family: "Montserrat";
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer a {
+  color: #26A699;
+}
+
 @media screen and (max-width: 1024px) {
   .main {
     width: auto;
+    height: auto;
     background: none;
     box-shadow: none;
     margin-top: 76px;
@@ -123,5 +139,10 @@ h1 {
     top: 10px;
     z-index: 999;
     right: 10px;
+  }
+
+  .footer {
+    position: relative;
+    bottom: 60px;
   }
 }
