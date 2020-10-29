@@ -42,7 +42,7 @@
 
 	<script>
 		(function () {
-			const url = 'https://raw.githubusercontent.com/zoo-js/zoo-data/main/json/organizations.json';
+			const url = 'https://raw.githubusercontent.com/zoo-js/zoo-data/main/json/members.json';
 			axios.get(url).then(res => {
 				const arr = res.data.data.sort((a, b) => b.number - a.number).slice(0,10);
 				const x = [];
